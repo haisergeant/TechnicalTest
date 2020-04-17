@@ -67,13 +67,15 @@ extension PageDataViewModel: PageDataViewModelProtocol {
         if viewModel.image.value == nil, let imageURLString = rowItem.imageHref, let url = URL(string: imageURLString) {
             let operation = CacheImageOperation(url: url)
             operation.completionHandler = { result in
-                switch result {
-                case .success(let image):
-                    viewModel.image.value = image
-                case .failure(_):
-                    break
-                }
-                self.imageOperations.removeValue(forKey: index)
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let image):
+                        viewModel.image.value = image
+                    case .failure(_):
+                        break
+                    }
+                    self.imageOperations.removeValue(forKey: index)
+                }                
             }
             queueManager.queue(operation)
             imageOperations[index] = operation

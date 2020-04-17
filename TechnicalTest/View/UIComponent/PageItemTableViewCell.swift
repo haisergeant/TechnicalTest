@@ -79,6 +79,7 @@ class PageItemTableViewCell: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         viewModel?.image.valueChanged = nil
+        viewModel = nil
     }
  
     override func configure(with viewModel: BaseViewModel) {

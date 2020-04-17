@@ -35,6 +35,11 @@ class PageDataViewController: BaseViewController {
         tableView.register(PageItemTableViewCell.self)
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadView), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
     }
     
     override func configureLayout() {
@@ -54,8 +59,16 @@ class PageDataViewController: BaseViewController {
     }
 }
 
+private extension PageDataViewController {
+    @objc func reloadView() {
+        viewModel.requestData()
+    }
+}
+
 extension PageDataViewController: PageDataViewProtocol {
     func configure(with viewModel: PageDataViewModelProtocol) {
+        title = viewModel.pageTitle()
+        tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
