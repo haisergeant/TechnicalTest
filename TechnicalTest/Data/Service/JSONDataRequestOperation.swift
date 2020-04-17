@@ -26,10 +26,17 @@ class JSONDataRequestOperation<T: Decodable>: BaseOperation<T> {
                     self.complete(result: .failure(error))
                 } else if let data = data {
                     let decoder = JSONDecoder()
-                    let result = try decoder.decode(T.self, from: data)
+                    
+                    let string = String(data: data, encoding: .ascii)
+                    guard let newData = string?.data(using: .utf8) else {
+                        self.complete(result: .failure(APIError.jsonFormatError))
+                        return
+                    }
+                    let result = try decoder.decode(T.self, from: newData)
                     self.complete(result: .success(result))
                 }
             } catch {
+                print(error)
                 self.complete(result: .failure(APIError.jsonFormatError))
             }
         }

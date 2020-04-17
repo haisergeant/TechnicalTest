@@ -33,6 +33,8 @@ class PageDataViewController: BaseViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.register(PageItemTableViewCell.self)
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func configureLayout() {
@@ -44,6 +46,11 @@ class PageDataViewController: BaseViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    override func configureContents() {
+        super.configureContents()
+        viewModel.requestData()
     }
 }
 
@@ -65,7 +72,14 @@ extension PageDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PageItemTableViewCell = tableView.dequeueReuseableCell(indexPath: indexPath)
         cell.configure(with: viewModel.cellViewModel(at: indexPath.row))
+        viewModel.requestDataForCellIfNeeded(at: indexPath.row)
         return cell
+    }
+}
+
+extension PageDataViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.stopRequestDataForCell(at: indexPath.row)
     }
 }
 

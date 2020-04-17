@@ -27,6 +27,7 @@
 		E87F554B244936AC00204432 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F554A244936AC00204432 /* BaseViewController.swift */; };
 		E87F554D2449395200204432 /* PageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F554C2449395200204432 /* PageItemTableViewCell.swift */; };
 		E87F554F24493F4800204432 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F554E24493F4800204432 /* BaseTableViewCell.swift */; };
+		E8A2A1CD244972AB00B09EF3 /* CacheImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2A1CC244972AB00B09EF3 /* CacheImageOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		E87F554A244936AC00204432 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E87F554C2449395200204432 /* PageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageItemTableViewCell.swift; sourceTree = "<group>"; };
 		E87F554E24493F4800204432 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		E8A2A1CC244972AB00B09EF3 /* CacheImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 				E87F55202449200300204432 /* Observable.swift */,
 				E87F55212449200300204432 /* QueueManager.swift */,
 				E87F5544244925FC00204432 /* JSONDataRequestOperation.swift */,
+				E8A2A1CC244972AB00B09EF3 /* CacheImageOperation.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				E87F55322449200300204432 /* Reuseable.swift in Sources */,
 				E87F554B244936AC00204432 /* BaseViewController.swift in Sources */,
 				E87F55342449200300204432 /* AppConstants.swift in Sources */,
+				E8A2A1CD244972AB00B09EF3 /* CacheImageOperation.swift in Sources */,
 				E87F5545244925FC00204432 /* JSONDataRequestOperation.swift in Sources */,
 				E87F552A2449200300204432 /* BaseViewModel.swift in Sources */,
 				E87F55312449200300204432 /* String+Extension.swift in Sources */,

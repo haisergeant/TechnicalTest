@@ -24,9 +24,7 @@ extension UICollectionView {
     }
     
     func register<T: UICollectionViewCell>(_: T.Type) where T: Reuseable {
-        let bundle = Bundle(for: T.self)
-        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
-        register(nib, forCellWithReuseIdentifier: T.reuseIdentifier)
+        register(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
 }
 
@@ -36,8 +34,6 @@ extension UITableView {
     }
     
     func register<T: UITableViewCell>(_: T.Type) where T: Reuseable {
-        let bundle = Bundle(for: T.self)
-        let nib = UINib(nibName: T.reuseIdentifier, bundle: bundle)
-        register(nib, forCellReuseIdentifier: T.reuseIdentifier)
+        register(T.self, forCellReuseIdentifier: T.reuseIdentifier)
     }
 }

@@ -14,5 +14,6 @@ struct APIConstants {
 
 enum APIError: Error {
     case invalidAPIError
+    case invalidImageLink
     case jsonFormatError
 }
