@@ -254,9 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				E87F551E2449200300204432 /* APIConstants.swift */,
-				E87F551F2449200300204432 /* BaseOperation.swift */,
 				E87F55202449200300204432 /* Observable.swift */,
 				E87F55212449200300204432 /* QueueManager.swift */,
+				E87F551F2449200300204432 /* BaseOperation.swift */,
 				E87F5544244925FC00204432 /* JSONDataRequestOperation.swift */,
 				E8A2A1CC244972AB00B09EF3 /* CacheImageOperation.swift */,
 			);

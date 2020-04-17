@@ -20,12 +20,16 @@ class CacheImageOperation: BaseOperation<UIImage> {
     }
     
     override func main() {
-        if let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.absoluteString {
+        if let cacheDirectory = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first {
             let fileName = self.url.lastPathComponent
             
             let downloadDirectory = cacheDirectory + "/" + "Download"
             if !FileManager.default.fileExists(atPath: downloadDirectory) {
-                try? FileManager.default.createDirectory(atPath: downloadDirectory, withIntermediateDirectories: true)
+                do {
+                    try FileManager.default.createDirectory(atPath: downloadDirectory, withIntermediateDirectories: true)
+                } catch {
+                    print(error)
+                }
             }
             
             let fullFileName = downloadDirectory + "/" + fileName
@@ -42,7 +46,11 @@ class CacheImageOperation: BaseOperation<UIImage> {
                         self.complete(result: .failure(APIError.invalidImageLink))
                         return
                     }
-                    try? data.write(to: URL(fileURLWithPath: fullFileName))
+                    do {
+                    try data.write(to: URL(fileURLWithPath: fullFileName))
+                    } catch {
+                        print(error)
+                    }
                     self.complete(result: .success(image))
                 }
                 dataTask?.resume()

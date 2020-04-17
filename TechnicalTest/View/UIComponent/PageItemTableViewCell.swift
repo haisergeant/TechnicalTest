@@ -21,6 +21,7 @@ class PageItemTableViewCell: BaseTableViewCell {
     private let imageContainer = UIView()
     private let avatarView = UIImageView()
     
+    private let textContainer = UIView()
     private let textStackView = UIStackView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
@@ -34,14 +35,15 @@ class PageItemTableViewCell: BaseTableViewCell {
         mainStackView.addArrangedSubview(imageContainer)
         imageContainer.addSubview(avatarView)
         
-        mainStackView.addArrangedSubview(textStackView)
+        mainStackView.addArrangedSubview(textContainer)
+        textContainer.addSubview(textStackView)
         textStackView.addArrangedSubview(titleLabel)
         textStackView.addArrangedSubview(descriptionLabel)
     }
     
     override func configureLayout() {
         super.configureLayout()
-        [mainStackView, imageContainer, avatarView,
+        [mainStackView, imageContainer, avatarView, textContainer,
          textStackView, titleLabel, descriptionLabel].forEach { disableTranslatesAutoResizing($0) }
         
         NSLayoutConstraint.activate([
@@ -53,11 +55,18 @@ class PageItemTableViewCell: BaseTableViewCell {
         
         NSLayoutConstraint.activate([
             avatarView.topAnchor.constraint(equalTo: titleLabel.topAnchor),
-            avatarView.bottomAnchor.constraint(lessThanOrEqualTo: imageContainer.bottomAnchor, constant: -10),
+            avatarView.bottomAnchor.constraint(lessThanOrEqualTo: imageContainer.bottomAnchor),
             avatarView.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor),
             avatarView.trailingAnchor.constraint(equalTo: imageContainer.trailingAnchor),
             avatarView.widthAnchor.constraint(equalToConstant: 44),
             avatarView.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
+        NSLayoutConstraint.activate([
+            textStackView.topAnchor.constraint(equalTo: textContainer.topAnchor),
+            textStackView.bottomAnchor.constraint(lessThanOrEqualTo: textContainer.bottomAnchor),
+            textStackView.leadingAnchor.constraint(equalTo: textContainer.leadingAnchor),
+            textStackView.trailingAnchor.constraint(equalTo: textContainer.trailingAnchor),
         ])
     }
     
@@ -70,6 +79,8 @@ class PageItemTableViewCell: BaseTableViewCell {
         textStackView.spacing = 8
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
+        
+        imageView?.contentMode = .scaleAspectFit
     }
     
     private func disableTranslatesAutoResizing(_ view: UIView) {
