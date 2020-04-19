@@ -33,7 +33,7 @@ class PageDataViewController: BaseViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.register(PageItemTableViewCell.self)
-        tableView.estimatedRowHeight = 40
+        tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
         
         let refreshControl = UIRefreshControl()
@@ -68,15 +68,19 @@ private extension PageDataViewController {
 
 extension PageDataViewController: PageDataViewProtocol {
     func configure(with viewModel: PageDataViewModelProtocol) {
-        hideLoading()
         title = viewModel.pageTitle()
-        tableView.refreshControl?.endRefreshing()
+        hideLoadingAndRefreshControl()
         tableView.reloadData()
     }
     
     func handleError(_ error: Error) {
-        hideLoading()
+        hideLoadingAndRefreshControl()
         showError(error)
+    }
+    
+    private func hideLoadingAndRefreshControl() {
+        hideLoading()
+        tableView.refreshControl?.endRefreshing()
     }
 }
 

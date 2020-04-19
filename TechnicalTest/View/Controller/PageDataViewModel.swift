@@ -49,13 +49,15 @@ extension PageDataViewModel: PageDataViewModelProtocol {
                 self.viewModels = self.rowItems.compactMap {
                     PageItemCellViewModel(title: $0.title,
                                           description: $0.description,
-                                          image: Observable<UIImage?>(nil))
+                                          image: Observable<ImageState>($0.imageHref != nil ? .loading : .fail))
                 }
                 DispatchQueue.main.async {
                     self.view?.configure(with: self)
                 }                
             case .failure(let error):
-                self.view?.handleError(error)
+                DispatchQueue.main.async {
+                    self.view?.handleError(error)
+                }                
             }
         }
         queueManager.queue(operation)
@@ -64,15 +66,17 @@ extension PageDataViewModel: PageDataViewModelProtocol {
     func requestDataForCellIfNeeded(at index: Int) {
         let viewModel = viewModels[index]
         let rowItem = rowItems[index]
-        if viewModel.image.value == nil, let imageURLString = rowItem.imageHref, let url = URL(string: imageURLString) {
+        if viewModel.image.value == .loading,
+            let imageURLString = rowItem.imageHref,
+            let url = URL(string: imageURLString) {
             let operation = CacheImageOperation(url: url)
             operation.completionHandler = { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let image):
-                        viewModel.image.value = image
+                        viewModel.image.value = .loadedImage(image: image)
                     case .failure(_):
-                        break
+                        viewModel.image.value = .fail                        
                     }
                     self.imageOperations.removeValue(forKey: index)
                 }                

@@ -8,10 +8,16 @@
 
 import UIKit
 
+enum ImageState: Equatable {
+    case loading
+    case fail
+    case loadedImage(image: UIImage)
+}
+
 struct PageItemCellViewModel: BaseViewModel {
     let title: String?
     let description: String?
-    let image: Observable<UIImage?>
+    let image: Observable<ImageState>
 }
 
 class PageItemTableViewCell: BaseTableViewCell {
@@ -19,6 +25,7 @@ class PageItemTableViewCell: BaseTableViewCell {
     private let mainStackView = UIStackView()
     
     private let imageContainer = UIView()
+    private let loadingIndicator = UIActivityIndicatorView(style: .gray)
     private let avatarView = UIImageView()
     
     private let textContainer = UIView()
@@ -34,6 +41,7 @@ class PageItemTableViewCell: BaseTableViewCell {
         
         mainStackView.addArrangedSubview(imageContainer)
         imageContainer.addSubview(avatarView)
+        imageContainer.addSubview(loadingIndicator)
         
         mainStackView.addArrangedSubview(textContainer)
         textContainer.addSubview(textStackView)
@@ -43,7 +51,7 @@ class PageItemTableViewCell: BaseTableViewCell {
     
     override func configureLayout() {
         super.configureLayout()
-        [mainStackView, imageContainer, avatarView, textContainer,
+        [mainStackView, imageContainer, avatarView, textContainer, loadingIndicator,
          textStackView, titleLabel, descriptionLabel].forEach { disableTranslatesAutoResizing($0) }
         
         NSLayoutConstraint.activate([
@@ -54,8 +62,8 @@ class PageItemTableViewCell: BaseTableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            avatarView.topAnchor.constraint(equalTo: titleLabel.topAnchor),
-            avatarView.bottomAnchor.constraint(lessThanOrEqualTo: imageContainer.bottomAnchor),
+            avatarView.topAnchor.constraint(equalTo: imageContainer.topAnchor),
+            avatarView.bottomAnchor.constraint(lessThanOrEqualTo: imageContainer.bottomAnchor, constant: 0),
             avatarView.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor),
             avatarView.trailingAnchor.constraint(equalTo: imageContainer.trailingAnchor),
             avatarView.widthAnchor.constraint(equalToConstant: 44),
@@ -63,11 +71,17 @@ class PageItemTableViewCell: BaseTableViewCell {
         ])
         
         NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: avatarView.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(lessThanOrEqualTo: avatarView.centerYAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
             textStackView.topAnchor.constraint(equalTo: textContainer.topAnchor),
-            textStackView.bottomAnchor.constraint(lessThanOrEqualTo: textContainer.bottomAnchor),
+            textStackView.bottomAnchor.constraint(lessThanOrEqualTo: textContainer.bottomAnchor, constant: 0),
             textStackView.leadingAnchor.constraint(equalTo: textContainer.leadingAnchor),
             textStackView.trailingAnchor.constraint(equalTo: textContainer.trailingAnchor),
         ])
+        textStackView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
     
     override func configureContent() {
@@ -77,12 +91,19 @@ class PageItemTableViewCell: BaseTableViewCell {
         
         textStackView.axis = .vertical
         textStackView.spacing = 8
+        
         titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 19, weight: .bold)
+        titleLabel.textColor = .brown
+        
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        descriptionLabel.textColor = .lightGray
         
         avatarView.contentMode = .scaleAspectFit
         avatarView.layer.cornerRadius = 5
         avatarView.clipsToBounds = true
+        loadingIndicator.hidesWhenStopped = true
     }
     
     private func disableTranslatesAutoResizing(_ view: UIView) {
@@ -100,9 +121,23 @@ class PageItemTableViewCell: BaseTableViewCell {
         self.viewModel = viewModel
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
-        avatarView.image = viewModel.image.value
+        configureImage(with: viewModel.image.value)
         
-        viewModel.image.valueChanged = { image in
+        viewModel.image.valueChanged = { [weak self] state in
+            self?.configureImage(with: state)
+        }
+    }
+    
+    private func configureImage(with state: ImageState) {
+        switch state {
+        case .loading:
+            self.loadingIndicator.startAnimating()
+            self.avatarView.image = nil
+        case .fail:
+            self.loadingIndicator.stopAnimating()
+            self.avatarView.image = nil
+        case .loadedImage(let image):
+            self.loadingIndicator.stopAnimating()
             self.avatarView.image = image
         }
     }
