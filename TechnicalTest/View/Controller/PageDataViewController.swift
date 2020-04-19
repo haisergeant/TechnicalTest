@@ -55,6 +55,7 @@ class PageDataViewController: BaseViewController {
     
     override func configureContents() {
         super.configureContents()
+        showLoadinng()
         viewModel.requestData()
     }
 }
@@ -67,13 +68,15 @@ private extension PageDataViewController {
 
 extension PageDataViewController: PageDataViewProtocol {
     func configure(with viewModel: PageDataViewModelProtocol) {
+        hideLoading()
         title = viewModel.pageTitle()
         tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
     func handleError(_ error: Error) {
-        
+        hideLoading()
+        showError(error)
     }
 }
 

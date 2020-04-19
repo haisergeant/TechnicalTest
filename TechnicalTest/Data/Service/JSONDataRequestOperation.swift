@@ -36,7 +36,6 @@ class JSONDataRequestOperation<T: Decodable>: BaseOperation<T> {
                     self.complete(result: .success(result))
                 }
             } catch {
-                print(error)
                 self.complete(result: .failure(APIError.jsonFormatError))
             }
         }

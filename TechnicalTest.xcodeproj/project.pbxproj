@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E856160A244BE9430080A048 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8561609244BE9430080A048 /* LoadingView.swift */; };
+		E856160C244BE9A10080A048 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856160B244BE9A10080A048 /* BaseView.swift */; };
 		E87F54CB24491EA000204432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F54CA24491EA000204432 /* AppDelegate.swift */; };
 		E87F54D424491EA400204432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87F54D324491EA400204432 /* Assets.xcassets */; };
 		E87F54D724491EA400204432 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87F54D524491EA400204432 /* LaunchScreen.storyboard */; };
 		E87F54E224491EA400204432 /* TechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F54E124491EA400204432 /* TechnicalTestTests.swift */; };
 		E87F54ED24491EA400204432 /* TechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F54EC24491EA400204432 /* TechnicalTestUITests.swift */; };
 		E87F552A2449200300204432 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55032449200300204432 /* BaseViewModel.swift */; };
-		E87F55312449200300204432 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F550E2449200300204432 /* String+Extension.swift */; };
 		E87F55322449200300204432 /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55102449200300204432 /* Reuseable.swift */; };
 		E87F55342449200300204432 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55122449200300204432 /* AppConstants.swift */; };
 		E87F553B2449200300204432 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F551E2449200300204432 /* APIConstants.swift */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E8561609244BE9430080A048 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E856160B244BE9A10080A048 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E87F54C724491EA000204432 /* TechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87F54CA24491EA000204432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87F54D324491EA400204432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		E87F54EC24491EA400204432 /* TechnicalTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalTestUITests.swift; sourceTree = "<group>"; };
 		E87F54EE24491EA400204432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E87F55032449200300204432 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		E87F550E2449200300204432 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E87F55102449200300204432 /* Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
 		E87F55122449200300204432 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		E87F551E2449200300204432 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -130,7 +132,6 @@
 				E87F55082449200300204432 /* Base */,
 				E87F55132449200300204432 /* Data */,
 				E87F55092449200300204432 /* Extension */,
-				E87F54FA2449200300204432 /* Font */,
 				E87F54FB2449200300204432 /* View */,
 				E87F54D324491EA400204432 /* Assets.xcassets */,
 				E87F54D524491EA400204432 /* LaunchScreen.storyboard */,
@@ -157,13 +158,6 @@
 			path = TechnicalTestUITests;
 			sourceTree = "<group>";
 		};
-		E87F54FA2449200300204432 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		E87F54FB2449200300204432 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				E87F554C2449395200204432 /* PageItemTableViewCell.swift */,
+				E8561609244BE9430080A048 /* LoadingView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -193,9 +188,10 @@
 		E87F55082449200300204432 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E87F55032449200300204432 /* BaseViewModel.swift */,
 				E87F554A244936AC00204432 /* BaseViewController.swift */,
 				E87F554E24493F4800204432 /* BaseTableViewCell.swift */,
-				E87F55032449200300204432 /* BaseViewModel.swift */,
+				E856160B244BE9A10080A048 /* BaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -203,26 +199,9 @@
 		E87F55092449200300204432 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E87F550A2449200300204432 /* Data */,
-				E87F550C2449200300204432 /* Foundation */,
 				E87F550F2449200300204432 /* UIKit */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		E87F550A2449200300204432 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		E87F550C2449200300204432 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				E87F550E2449200300204432 /* String+Extension.swift */,
-			);
-			path = Foundation;
 			sourceTree = "<group>";
 		};
 		E87F550F2449200300204432 /* UIKit */ = {
@@ -397,6 +376,7 @@
 				E87F553D2449200300204432 /* Observable.swift in Sources */,
 				E87F554724492E0400204432 /* PageDataViewController.swift in Sources */,
 				E87F54CB24491EA000204432 /* AppDelegate.swift in Sources */,
+				E856160A244BE9430080A048 /* LoadingView.swift in Sources */,
 				E87F55432449255D00204432 /* PageData.swift in Sources */,
 				E87F55322449200300204432 /* Reuseable.swift in Sources */,
 				E87F554B244936AC00204432 /* BaseViewController.swift in Sources */,
@@ -404,10 +384,10 @@
 				E8A2A1CD244972AB00B09EF3 /* CacheImageOperation.swift in Sources */,
 				E87F5545244925FC00204432 /* JSONDataRequestOperation.swift in Sources */,
 				E87F552A2449200300204432 /* BaseViewModel.swift in Sources */,
-				E87F55312449200300204432 /* String+Extension.swift in Sources */,
 				E87F554924492E5000204432 /* PageDataViewModel.swift in Sources */,
 				E87F553E2449200300204432 /* QueueManager.swift in Sources */,
 				E87F553C2449200300204432 /* BaseOperation.swift in Sources */,
+				E856160C244BE9A10080A048 /* BaseView.swift in Sources */,
 				E87F553B2449200300204432 /* APIConstants.swift in Sources */,
 				E87F554D2449395200204432 /* PageItemTableViewCell.swift in Sources */,
 			);

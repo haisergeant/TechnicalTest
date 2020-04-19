@@ -25,11 +25,7 @@ class CacheImageOperation: BaseOperation<UIImage> {
             
             let downloadDirectory = cacheDirectory + "/" + "Download"
             if !FileManager.default.fileExists(atPath: downloadDirectory) {
-                do {
-                    try FileManager.default.createDirectory(atPath: downloadDirectory, withIntermediateDirectories: true)
-                } catch {
-                    print(error)
-                }
+                try? FileManager.default.createDirectory(atPath: downloadDirectory, withIntermediateDirectories: true)
             }
             
             let fullFileName = downloadDirectory + "/" + fileName
@@ -46,11 +42,7 @@ class CacheImageOperation: BaseOperation<UIImage> {
                         self.complete(result: .failure(APIError.invalidImageLink))
                         return
                     }
-                    do {
-                    try data.write(to: URL(fileURLWithPath: fullFileName))
-                    } catch {
-                        print(error)
-                    }
+                    try? data.write(to: URL(fileURLWithPath: fullFileName))
                     self.complete(result: .success(image))
                 }
                 dataTask?.resume()

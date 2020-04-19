@@ -80,7 +80,9 @@ class PageItemTableViewCell: BaseTableViewCell {
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         
-        imageView?.contentMode = .scaleAspectFit
+        avatarView.contentMode = .scaleAspectFit
+        avatarView.layer.cornerRadius = 5
+        avatarView.clipsToBounds = true
     }
     
     private func disableTranslatesAutoResizing(_ view: UIView) {

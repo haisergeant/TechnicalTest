@@ -9,6 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    private lazy var loadingView = LoadingView()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,4 +30,22 @@ class BaseViewController: UIViewController {
     func configureSubviews() { }
     func configureLayout() { }
     func configureContents() { }
+    
+    func showError(_ error: Error, completion: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: error.localizedDescription,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default) { (action) in
+            self.dismiss(animated: true, completion: completion)
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showLoadinng() {
+        loadingView.showLoading(on: view)
+    }
+    
+    func hideLoading() {
+        loadingView.removeFromSuperview()
+    }
 }
