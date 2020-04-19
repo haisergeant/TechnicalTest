@@ -20,7 +20,8 @@ class JSONDataRequestOperation<T: Decodable>: BaseOperation<T> {
     }
     
     override func main() {
-        dataTask = urlSession.dataTask(with: url) { (data, response, error) in
+        dataTask = urlSession.dataTask(with: url) { [weak self] (data, response, error) in
+            guard let self = self else { return }
             do {
                 if let error = error {
                     self.complete(result: .failure(error))

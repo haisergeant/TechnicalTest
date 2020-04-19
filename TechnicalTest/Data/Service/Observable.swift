@@ -11,7 +11,8 @@ import Foundation
 class Observable<T: Equatable> {
     var value: T {
         didSet {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 if oldValue != self.value {
                     self.valueChanged?(self.value)
                 }

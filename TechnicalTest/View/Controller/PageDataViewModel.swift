@@ -40,7 +40,8 @@ extension PageDataViewModel: PageDataViewModelProtocol {
         }
         
         let operation = JSONDataRequestOperation<PageData>(url: url)
-        operation.completionHandler = { result in
+        operation.completionHandler = { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let pageData):
                 self.title = pageData.title
@@ -70,7 +71,8 @@ extension PageDataViewModel: PageDataViewModelProtocol {
             let imageURLString = rowItem.imageHref,
             let url = URL(string: imageURLString) {
             let operation = CacheImageOperation(url: url)
-            operation.completionHandler = { result in
+            operation.completionHandler = { [weak self] result in
+                guard let self = self else { return }
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let image):

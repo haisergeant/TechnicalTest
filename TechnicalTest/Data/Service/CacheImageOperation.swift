@@ -37,7 +37,8 @@ class CacheImageOperation: BaseOperation<UIImage> {
                 }
                 self.complete(result: .success(image))
             } else {
-                dataTask = urlSession.dataTask(with: url) { (data, response, error) in
+                dataTask = urlSession.dataTask(with: url) { [weak self] (data, response, error) in
+                    guard let self = self else { return }
                     guard let data = data, let image = UIImage(data: data) else {
                         self.complete(result: .failure(APIError.invalidImageLink))
                         return

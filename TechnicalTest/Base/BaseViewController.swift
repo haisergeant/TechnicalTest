@@ -35,8 +35,8 @@ class BaseViewController: UIViewController {
         let alertController = UIAlertController(title: "Error",
                                                 message: error.localizedDescription,
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default) { (action) in
-            self.dismiss(animated: true, completion: completion)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+            self?.dismiss(animated: true, completion: completion)
         })
         present(alertController, animated: true, completion: nil)
     }
