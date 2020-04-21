@@ -17,7 +17,6 @@
 		E87F54ED24491EA400204432 /* TechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F54EC24491EA400204432 /* TechnicalTestUITests.swift */; };
 		E87F552A2449200300204432 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55032449200300204432 /* BaseViewModel.swift */; };
 		E87F55322449200300204432 /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55102449200300204432 /* Reuseable.swift */; };
-		E87F55342449200300204432 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55122449200300204432 /* AppConstants.swift */; };
 		E87F553B2449200300204432 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F551E2449200300204432 /* APIConstants.swift */; };
 		E87F553C2449200300204432 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F551F2449200300204432 /* BaseOperation.swift */; };
 		E87F553D2449200300204432 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F55202449200300204432 /* Observable.swift */; };
@@ -66,7 +65,6 @@
 		E87F54EE24491EA400204432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E87F55032449200300204432 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E87F55102449200300204432 /* Reuseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
-		E87F55122449200300204432 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		E87F551E2449200300204432 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		E87F551F2449200300204432 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		E87F55202449200300204432 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				E87F54CA24491EA000204432 /* AppDelegate.swift */,
-				E87F55122449200300204432 /* AppConstants.swift */,
 				E87F55082449200300204432 /* Base */,
 				E87F55132449200300204432 /* Data */,
 				E87F55092449200300204432 /* Extension */,
@@ -384,7 +381,6 @@
 				E87F55432449255D00204432 /* PageData.swift in Sources */,
 				E87F55322449200300204432 /* Reuseable.swift in Sources */,
 				E87F554B244936AC00204432 /* BaseViewController.swift in Sources */,
-				E87F55342449200300204432 /* AppConstants.swift in Sources */,
 				E8A2A1CD244972AB00B09EF3 /* CacheImageOperation.swift in Sources */,
 				E87F5545244925FC00204432 /* JSONDataRequestOperation.swift in Sources */,
 				E87F552A2449200300204432 /* BaseViewModel.swift in Sources */,
