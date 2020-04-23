@@ -10,11 +10,11 @@ import Foundation
 
 class JSONDataRequestOperation<T: Decodable>: BaseOperation<T> {
         
-    private let urlSession: URLSession
+    private let urlSession: URLSessionProtocol
     private let url: URL
-    private var dataTask: URLSessionDataTask?
+    private var dataTask: URLSessionDataTaskProtocol?
     
-    init(url: URL, urlSession: URLSession = .shared) {
+    init(url: URL, urlSession: URLSessionProtocol = URLSession.shared) {
         self.url = url
         self.urlSession = urlSession
     }

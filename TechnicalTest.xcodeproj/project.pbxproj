@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E835DDEF244D50F800270A6C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E835DDEE244D50F800270A6C /* README.md */; };
+		E835DDF924512A9600270A6C /* JSONDataRequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DDF824512A9600270A6C /* JSONDataRequestOperationTests.swift */; };
+		E835DDFB245179CD00270A6C /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DDFA245179CD00270A6C /* URLSessionProtocol.swift */; };
+		E835DDFD24517A9700270A6C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DDFC24517A9700270A6C /* MockURLSession.swift */; };
 		E856160A244BE9430080A048 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8561609244BE9430080A048 /* LoadingView.swift */; };
 		E856160C244BE9A10080A048 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856160B244BE9A10080A048 /* BaseView.swift */; };
 		E87F54CB24491EA000204432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F54CA24491EA000204432 /* AppDelegate.swift */; };
@@ -50,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		E835DDEE244D50F800270A6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E835DDF824512A9600270A6C /* JSONDataRequestOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataRequestOperationTests.swift; sourceTree = "<group>"; };
+		E835DDFA245179CD00270A6C /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		E835DDFC24517A9700270A6C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		E8561609244BE9430080A048 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E856160B244BE9A10080A048 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E87F54C724491EA000204432 /* TechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				E87F54E124491EA400204432 /* TechnicalTestTests.swift */,
+				E835DDFC24517A9700270A6C /* MockURLSession.swift */,
+				E835DDF824512A9600270A6C /* JSONDataRequestOperationTests.swift */,
 				E87F54E324491EA400204432 /* Info.plist */,
 			);
 			path = TechnicalTestTests;
@@ -238,6 +246,7 @@
 				E87F551F2449200300204432 /* BaseOperation.swift */,
 				E87F5544244925FC00204432 /* JSONDataRequestOperation.swift */,
 				E8A2A1CC244972AB00B09EF3 /* CacheImageOperation.swift */,
+				E835DDFA245179CD00270A6C /* URLSessionProtocol.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -373,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E835DDFB245179CD00270A6C /* URLSessionProtocol.swift in Sources */,
 				E87F554F24493F4800204432 /* BaseTableViewCell.swift in Sources */,
 				E87F553D2449200300204432 /* Observable.swift in Sources */,
 				E87F554724492E0400204432 /* PageDataViewController.swift in Sources */,
@@ -397,7 +407,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E835DDFD24517A9700270A6C /* MockURLSession.swift in Sources */,
 				E87F54E224491EA400204432 /* TechnicalTestTests.swift in Sources */,
+				E835DDF924512A9600270A6C /* JSONDataRequestOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,7 +605,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TechnicalTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -614,7 +626,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TechnicalTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,6 +646,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TechnicalTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -653,6 +666,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TechnicalTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

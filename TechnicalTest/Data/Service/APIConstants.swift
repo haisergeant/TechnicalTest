@@ -12,7 +12,7 @@ struct APIConstants {
     static let JSON_FEED_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 }
 
-enum APIError: Error {
+enum APIError: Error, Equatable {
     case invalidAPIError
     case invalidImageLink
     case jsonFormatError
