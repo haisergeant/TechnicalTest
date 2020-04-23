@@ -10,13 +10,15 @@ import UIKit
 
 class CacheImageOperation: BaseOperation<UIImage> {
     
-    private let urlSession: URLSession
+    private let urlSession: URLSessionProtocol
+    private let fileManager: FileManagerProtocol
     private let url: URL
-    private var dataTask: URLSessionDataTask?
+    private var dataTask: URLSessionDataTaskProtocol?
     
-    init(url: URL, urlSession: URLSession = .shared) {
+    init(url: URL, urlSession: URLSessionProtocol = URLSession.shared, fileManager: FileManagerProtocol = FileManager.default) {
         self.url = url
         self.urlSession = urlSession
+        self.fileManager = fileManager
     }
     
     override func main() {
@@ -24,13 +26,15 @@ class CacheImageOperation: BaseOperation<UIImage> {
             let fileName = self.url.lastPathComponent
             
             let downloadDirectory = cacheDirectory + "/" + "Download"
-            if !FileManager.default.fileExists(atPath: downloadDirectory) {
-                try? FileManager.default.createDirectory(atPath: downloadDirectory, withIntermediateDirectories: true)
+            if !fileManager.fileExists(atPath: downloadDirectory) {
+                try? fileManager.createDirectory(atPath: downloadDirectory,
+                                                 withIntermediateDirectories: true,
+                                                 attributes: nil)
             }
             
             let fullFileName = downloadDirectory + "/" + fileName
             
-            if FileManager.default.fileExists(atPath: fullFileName) {
+            if fileManager.fileExists(atPath: fullFileName) {
                 guard let image = UIImage(contentsOfFile: fullFileName) else {
                     complete(result: .failure(APIError.invalidImageLink))
                     return

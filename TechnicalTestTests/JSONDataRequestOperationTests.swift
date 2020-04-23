@@ -14,6 +14,10 @@ import XCTest
 class JSONDataRequestOperationTests: XCTestCase {
     let queue = OperationQueue()
     
+    override func setUp() {
+        queue.cancelAllOperations()
+    }
+    
     func testAPIRequestSuccess() {
         let session = MockURLSession()
         session.data = "{\"title\":\"Canada\",\"rows\":[{\"title\":\"Beavers\"}]}".data(using: .ascii)
