@@ -78,7 +78,7 @@ class CacheImageOperationTests: XCTestCase {
         let fileManager = MockFileManager(fileExist: true)
         let url = URL(string: "www.google.com")!
         
-        let expectation = self.expectation(description: "Get image from file system")
+        let expectation = self.expectation(description: "Get image from file system but fail")
         let operation = CacheImageOperation(url: url, urlSession: session, fileManager: fileManager)
         operation.completionHandler = { result in
             XCTAssertTrue(operation.isFinished, "Operation must be finished")
@@ -87,6 +87,50 @@ class CacheImageOperationTests: XCTestCase {
             } else if case .failure(let error) = result {
                 XCTAssertEqual(error as? APIError, APIError.invalidImageLink)
                 expectation.fulfill()
+            }
+        }
+        
+        queue.addOperation(operation)
+        
+        waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testImageGetFromFileSystemSuccess() {
+        // create the image file in file system
+        let bundle = Bundle(for: CacheImageOperationTests.self)
+        let imageData = UIImage(named: "tick", in: bundle, compatibleWith: nil)!.pngData()!
+        
+        let cacheDirectory = NSSearchPathForDirectoriesInDomains(.cachesDirectory,
+                                                                 .userDomainMask,
+                                                                 true).first!
+        let downloadFolder = cacheDirectory + "/" + "Download"
+        
+        let filePath = downloadFolder + "/" + "tick.png"
+        do {
+            try FileManager.default.createDirectory(atPath: downloadFolder,
+                                                    withIntermediateDirectories: true,
+                                                    attributes: nil)
+            let url = URL(fileURLWithPath: filePath)
+            try imageData.write(to: url)
+        } catch {
+            print("cannot write the image to file")
+        }
+        
+        // begin the test
+        let session = MockURLSession()
+        
+        let fileManager = MockFileManager(fileExist: true)
+        let url = URL(string: "www.google.com/tick.png")!
+        
+        let expectation = self.expectation(description: "Get image from file system")
+        let operation = CacheImageOperation(url: url, urlSession: session, fileManager: fileManager)
+        operation.completionHandler = { result in
+            XCTAssertTrue(operation.isFinished, "Operation must be finished")
+            if case .success(let image) = result {
+                XCTAssertEqual(image.pngData(), imageData)
+                expectation.fulfill()
+            } else if case .failure = result {
+                XCTAssertFalse(true, "API should be success")
             }
         }
         
