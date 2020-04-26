@@ -25,10 +25,13 @@ class PageDataViewModel {
     private var rowItems = [RowItem]()
     private var viewModels = [PageItemCellViewModel]()
     private let queueManager: QueueManager
+    private let urlSession: URLSessionProtocol
     private var imageOperations: [Int: Operation] = [:]
     
-    init(queueManager: QueueManager = .shared) {
+    init(queueManager: QueueManager = .shared,
+         urlSession: URLSessionProtocol = URLSession.shared) {
         self.queueManager = queueManager
+        self.urlSession = urlSession
     }
 }
 
@@ -39,7 +42,7 @@ extension PageDataViewModel: PageDataViewModelProtocol {
             return
         }
         
-        let operation = JSONDataRequestOperation<PageData>(url: url)
+        let operation = JSONDataRequestOperation<PageData>(url: url, urlSession: urlSession)
         operation.completionHandler = { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -70,7 +73,7 @@ extension PageDataViewModel: PageDataViewModelProtocol {
         if viewModel.image.value == .loading,
             let imageURLString = rowItem.imageHref,
             let url = URL(string: imageURLString) {
-            let operation = CacheImageOperation(url: url)
+            let operation = CacheImageOperation(url: url, urlSession: urlSession)
             operation.completionHandler = { [weak self] result in
                 guard let self = self else { return }
                 DispatchQueue.main.async {

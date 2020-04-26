@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 @testable import TechnicalTest
 
 class MockURLSession: URLSessionProtocol {
@@ -35,5 +36,26 @@ class MockURLSessionDataTask: URLSessionDataTaskProtocol {
     
     func cancel() {
         cancelWasCalled = true
+    }
+}
+
+class PageDataURLSession: URLSessionProtocol {
+    var nextDataTask = MockURLSessionDataTask()
+    var data: Data?
+    var error: Error?
+    var imageData: Data?
+    var imageError: Error?
+    
+    func successHttpURLResponse(_ url: URL) -> URLResponse {
+        return HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!
+    }
+    
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
+        if url.absoluteString.hasSuffix(".png") || url.absoluteString.hasSuffix(".jpg") {
+            completionHandler(imageData, successHttpURLResponse(url), imageError)
+        } else {
+            completionHandler(data, successHttpURLResponse(url), error)
+        }
+        return nextDataTask
     }
 }

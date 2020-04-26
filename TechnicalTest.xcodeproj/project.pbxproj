@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		E835DDEF244D50F800270A6C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E835DDEE244D50F800270A6C /* README.md */; };
-		E835DDF924512A9600270A6C /* JSONDataRequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DDF824512A9600270A6C /* JSONDataRequestOperationTests.swift */; };
 		E835DDFB245179CD00270A6C /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DDFA245179CD00270A6C /* URLSessionProtocol.swift */; };
-		E835DDFD24517A9700270A6C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DDFC24517A9700270A6C /* MockURLSession.swift */; };
-		E835DE012451CA6A00270A6C /* CacheImageOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DE002451CA6A00270A6C /* CacheImageOperationTests.swift */; };
 		E835DE032451D36E00270A6C /* FileManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DE022451D36E00270A6C /* FileManagerProtocol.swift */; };
-		E835DE052451D43D00270A6C /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DE042451D43D00270A6C /* MockFileManager.swift */; };
 		E835DE072451D91B00270A6C /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = E835DE062451D91B00270A6C /* tick.png */; };
-		E835DE092452C6FE00270A6C /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DE082452C6FE00270A6C /* ObservableTests.swift */; };
-		E835DE0B2452CBC800270A6C /* QueueManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E835DE0A2452CBC800270A6C /* QueueManagerTests.swift */; };
+		E83B73492455D69300286247 /* CacheImageOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B733F2455D69300286247 /* CacheImageOperationTests.swift */; };
+		E83B734A2455D69300286247 /* JSONDataRequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B73402455D69300286247 /* JSONDataRequestOperationTests.swift */; };
+		E83B734B2455D69300286247 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B73412455D69300286247 /* ObservableTests.swift */; };
+		E83B734C2455D69300286247 /* QueueManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B73422455D69300286247 /* QueueManagerTests.swift */; };
+		E83B734D2455D69300286247 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B73442455D69300286247 /* MockFileManager.swift */; };
+		E83B734E2455D69300286247 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B73452455D69300286247 /* MockURLSession.swift */; };
+		E83B734F2455D69300286247 /* PageDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B73482455D69300286247 /* PageDataViewModelTests.swift */; };
 		E856160A244BE9430080A048 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8561609244BE9430080A048 /* LoadingView.swift */; };
 		E856160C244BE9A10080A048 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856160B244BE9A10080A048 /* BaseView.swift */; };
 		E87F54CB24491EA000204432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F54CA24491EA000204432 /* AppDelegate.swift */; };
@@ -58,15 +59,16 @@
 
 /* Begin PBXFileReference section */
 		E835DDEE244D50F800270A6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E835DDF824512A9600270A6C /* JSONDataRequestOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataRequestOperationTests.swift; sourceTree = "<group>"; };
 		E835DDFA245179CD00270A6C /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		E835DDFC24517A9700270A6C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
-		E835DE002451CA6A00270A6C /* CacheImageOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageOperationTests.swift; sourceTree = "<group>"; };
 		E835DE022451D36E00270A6C /* FileManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerProtocol.swift; sourceTree = "<group>"; };
-		E835DE042451D43D00270A6C /* MockFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
 		E835DE062451D91B00270A6C /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
-		E835DE082452C6FE00270A6C /* ObservableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
-		E835DE0A2452CBC800270A6C /* QueueManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManagerTests.swift; sourceTree = "<group>"; };
+		E83B733F2455D69300286247 /* CacheImageOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheImageOperationTests.swift; sourceTree = "<group>"; };
+		E83B73402455D69300286247 /* JSONDataRequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataRequestOperationTests.swift; sourceTree = "<group>"; };
+		E83B73412455D69300286247 /* ObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
+		E83B73422455D69300286247 /* QueueManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerTests.swift; sourceTree = "<group>"; };
+		E83B73442455D69300286247 /* MockFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
+		E83B73452455D69300286247 /* MockURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		E83B73482455D69300286247 /* PageDataViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDataViewModelTests.swift; sourceTree = "<group>"; };
 		E8561609244BE9430080A048 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E856160B244BE9A10080A048 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E87F54C724491EA000204432 /* TechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E83B733D2455D69300286247 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E83B733E2455D69300286247 /* Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E83B733E2455D69300286247 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E83B733F2455D69300286247 /* CacheImageOperationTests.swift */,
+				E83B73402455D69300286247 /* JSONDataRequestOperationTests.swift */,
+				E83B73412455D69300286247 /* ObservableTests.swift */,
+				E83B73422455D69300286247 /* QueueManagerTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E83B73432455D69300286247 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E83B73442455D69300286247 /* MockFileManager.swift */,
+				E83B73452455D69300286247 /* MockURLSession.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		E83B73462455D69300286247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E83B73472455D69300286247 /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E83B73472455D69300286247 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E83B73482455D69300286247 /* PageDataViewModelTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E87F54BE24491EA000204432 = {
 			isa = PBXGroup;
 			children = (
@@ -159,12 +205,9 @@
 		E87F54E024491EA400204432 /* TechnicalTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				E835DDFC24517A9700270A6C /* MockURLSession.swift */,
-				E835DE042451D43D00270A6C /* MockFileManager.swift */,
-				E835DDF824512A9600270A6C /* JSONDataRequestOperationTests.swift */,
-				E835DE002451CA6A00270A6C /* CacheImageOperationTests.swift */,
-				E835DE082452C6FE00270A6C /* ObservableTests.swift */,
-				E835DE0A2452CBC800270A6C /* QueueManagerTests.swift */,
+				E83B733D2455D69300286247 /* Data */,
+				E83B73432455D69300286247 /* Mock */,
+				E83B73462455D69300286247 /* View */,
 				E835DE062451D91B00270A6C /* tick.png */,
 				E87F54E324491EA400204432 /* Info.plist */,
 			);
@@ -424,12 +467,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E835DE012451CA6A00270A6C /* CacheImageOperationTests.swift in Sources */,
-				E835DDFD24517A9700270A6C /* MockURLSession.swift in Sources */,
-				E835DDF924512A9600270A6C /* JSONDataRequestOperationTests.swift in Sources */,
-				E835DE092452C6FE00270A6C /* ObservableTests.swift in Sources */,
-				E835DE052451D43D00270A6C /* MockFileManager.swift in Sources */,
-				E835DE0B2452CBC800270A6C /* QueueManagerTests.swift in Sources */,
+				E83B734F2455D69300286247 /* PageDataViewModelTests.swift in Sources */,
+				E83B734E2455D69300286247 /* MockURLSession.swift in Sources */,
+				E83B73492455D69300286247 /* CacheImageOperationTests.swift in Sources */,
+				E83B734C2455D69300286247 /* QueueManagerTests.swift in Sources */,
+				E83B734B2455D69300286247 /* ObservableTests.swift in Sources */,
+				E83B734A2455D69300286247 /* JSONDataRequestOperationTests.swift in Sources */,
+				E83B734D2455D69300286247 /* MockFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
