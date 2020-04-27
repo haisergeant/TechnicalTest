@@ -8,9 +8,10 @@
 
 import Foundation
 
-class BaseOperation<T>: Operation {
+// MARK: - BaseOperation
+class BaseOperation<Element>: Operation {
     
-    var completionHandler: ((Result<T, Error>) -> Void)?
+    var completionHandler: ((Result<Element, Error>) -> Void)?
     
     private enum State: String {
         case ready = "isReady"
@@ -59,7 +60,7 @@ class BaseOperation<T>: Operation {
         }
     }
     
-    func complete(result: Result<T, Error>) {
+    func complete(result: Result<Element, Error>) {
         finish()
         
         if !isCancelled {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Observable
 class Observable<T: Equatable> {
     var value: T {
         didSet {

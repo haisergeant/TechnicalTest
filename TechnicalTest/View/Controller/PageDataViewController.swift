@@ -8,12 +8,14 @@
 
 import UIKit
 
+// MARK: - PageDataViewProtocol
 protocol PageDataViewProtocol: class {
     func configure(with viewModel: PageDataViewModelProtocol)
     func handleError(_ error: Error)
 }
 
-class PageDataViewController: BaseViewController {
+// MARK: - PageDataViewProtocol
+final class PageDataViewController: BaseViewController {
     private let tableView = UITableView()
     private let viewModel: PageDataViewModelProtocol
     
@@ -60,12 +62,14 @@ class PageDataViewController: BaseViewController {
     }
 }
 
+// MARK: - PageDataViewController (private)
 private extension PageDataViewController {
     @objc func reloadView() {
         viewModel.requestData()
     }
 }
 
+// MARK: - PageDataViewProtocol
 extension PageDataViewController: PageDataViewProtocol {
     func configure(with viewModel: PageDataViewModelProtocol) {
         title = viewModel.pageTitle()
@@ -84,6 +88,7 @@ extension PageDataViewController: PageDataViewProtocol {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension PageDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
@@ -97,6 +102,7 @@ extension PageDataViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension PageDataViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         viewModel.stopRequestDataForCell(at: indexPath.row)

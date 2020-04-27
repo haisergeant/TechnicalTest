@@ -8,19 +8,22 @@
 
 import UIKit
 
+// MARK: - ImageState
 enum ImageState: Equatable {
     case loading
     case fail
     case loadedImage(image: UIImage)
 }
 
+// MARK: - PageItemCellViewModel
 struct PageItemCellViewModel: BaseViewModel {
     let title: String?
     let description: String?
     let image: Observable<ImageState>
 }
 
-class PageItemTableViewCell: BaseTableViewCell {
+// MARK: - PageItemTableViewCell
+final class PageItemTableViewCell: BaseTableViewCell {
     
     private let mainStackView = UIStackView()
     

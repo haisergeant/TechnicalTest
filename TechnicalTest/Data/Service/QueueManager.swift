@@ -8,7 +8,8 @@
 
 import Foundation
 
-class QueueManager {
+// MARK: - QueueManager
+final class QueueManager {
     static let shared = QueueManager()
     
     private let queue = OperationQueue()

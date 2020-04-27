@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CacheImageOperation: BaseOperation<UIImage> {
+// MARK: - CacheImageOperation
+final class CacheImageOperation: BaseOperation<UIImage> {
     
     private let urlSession: URLSessionProtocol
     private let fileManager: FileManagerProtocol
@@ -34,6 +35,7 @@ class CacheImageOperation: BaseOperation<UIImage> {
             
             let fullFileName = downloadDirectory + "/" + fileName
             
+            // Retrieve the image in file system if it exists
             if fileManager.fileExists(atPath: fullFileName) {
                 guard let image = UIImage(contentsOfFile: fullFileName) else {
                     complete(result: .failure(APIError.invalidImageLink))
@@ -47,6 +49,7 @@ class CacheImageOperation: BaseOperation<UIImage> {
                         self.complete(result: .failure(APIError.invalidImageLink))
                         return
                     }
+                    // Store image in file system for later use
                     try? data.write(to: URL(fileURLWithPath: fullFileName))
                     self.complete(result: .success(image))
                 }

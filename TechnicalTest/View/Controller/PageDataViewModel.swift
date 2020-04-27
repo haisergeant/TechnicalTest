@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// MARK: - PageDataViewModelProtocol
 protocol PageDataViewModelProtocol {
     func bind(to view: PageDataViewProtocol)
     func requestData()
@@ -19,7 +20,8 @@ protocol PageDataViewModelProtocol {
     func stopRequestDataForCell(at index: Int)
 }
 
-class PageDataViewModel {
+// MARK: - PageDataViewModel
+final class PageDataViewModel {
     private weak var view: PageDataViewProtocol?
     private var title: String = ""
     private var rowItems = [RowItem]()
@@ -35,6 +37,7 @@ class PageDataViewModel {
     }
 }
 
+// MARK: - PageDataViewModelProtocol
 extension PageDataViewModel: PageDataViewModelProtocol {
     func requestData() {
         guard let url = URL(string: APIConstants.JSON_FEED_URL) else {

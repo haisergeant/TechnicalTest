@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - URLSessionProtocol
 protocol URLSessionProtocol {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol
 }
@@ -18,6 +19,7 @@ extension URLSession: URLSessionProtocol {
     }
 }
 
+// MARK: - URLSessionDataTaskProtocol
 protocol URLSessionDataTaskProtocol {
     func resume()
     func cancel()

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class LoadingView: BaseView {
+// MARK: - LoadingView
+final class LoadingView: BaseView {
     private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     private let loadingIndicator = UIActivityIndicatorView(style: .gray)
     
@@ -38,6 +39,7 @@ class LoadingView: BaseView {
         ])
     }
     
+    // Public functions
     func showLoading(on view: UIView) {
         view.addSubview(self)
         self.translatesAutoresizingMaskIntoConstraints = false

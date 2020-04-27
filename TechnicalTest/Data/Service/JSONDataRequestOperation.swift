@@ -8,7 +8,8 @@
 
 import Foundation
 
-class JSONDataRequestOperation<T: Decodable>: BaseOperation<T> {
+// MARK: - JSONDataRequestOperation
+final class JSONDataRequestOperation<Element: Decodable>: BaseOperation<Element> {
         
     private let urlSession: URLSessionProtocol
     private let url: URL
@@ -33,7 +34,7 @@ class JSONDataRequestOperation<T: Decodable>: BaseOperation<T> {
                         self.complete(result: .failure(APIError.jsonFormatError))
                         return
                     }
-                    let result = try decoder.decode(T.self, from: newData)
+                    let result = try decoder.decode(Element.self, from: newData)
                     self.complete(result: .success(result))
                 }
             } catch {

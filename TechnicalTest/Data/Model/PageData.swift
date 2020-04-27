@@ -8,12 +8,12 @@
 
 import Foundation
 
-class PageData: Decodable {
+final class PageData: Decodable {
     let title: String
     let rows: [RowItem]
 }
 
-class RowItem: Decodable {
+final class RowItem: Decodable {
     let title: String?
     let description: String?
     let imageHref: String?
